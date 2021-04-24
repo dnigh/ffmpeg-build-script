@@ -716,7 +716,7 @@ download "https://git.ffmpeg.org/gitweb/ffmpeg.git/snapshot/553eb0773763798a6b96
 execute make -j $MJOBS
 execute make install
 
-INSTALL_FOLDER="/usr/bin"
+INSTALL_FOLDER=$HOME"/bin"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   INSTALL_FOLDER="/usr/local/bin"
 fi
