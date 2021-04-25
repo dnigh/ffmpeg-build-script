@@ -8,7 +8,7 @@ VERSION=1.24
 CWD=$(pwd)
 PACKAGES="$CWD/packages"
 WORKSPACE="$CWD/workspace"
-CFLAGS="-I$WORKSPACE/include -march=native -mtune=native -g -O3"
+CFLAGS="-I$WORKSPACE/include -march=native -mtune=native -Ofast"
 LDFLAGS="-L$WORKSPACE/lib"
 LDEXEFLAGS=""
 EXTRALIBS="-ldl -lpthread -lm -lz"
