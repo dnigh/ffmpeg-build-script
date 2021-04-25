@@ -515,6 +515,7 @@ CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
 if build "av1"; then
+  #download "https://aomedia.googlesource.com/aom/+archive/b52ee6d44adaef8a08f6984390de050d64df9faa.tar.gz" "av1.tar.gz" "av1"
   git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
   make_dir "$PACKAGES"/aom_build
   cd "$PACKAGES"/aom_build || exit
