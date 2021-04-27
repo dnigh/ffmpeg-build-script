@@ -515,14 +515,38 @@ CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
 if build "av1"; then
-  # libaom v2.0.1
-  #download "https://aomedia.googlesource.com/aom/+archive/b52ee6d44adaef8a08f6984390de050d64df9faa.tar.gz" "av1.tar.gz" "av1"
-  # libaom v2.0.2
-  #download "https://aomedia.googlesource.com/aom/+archive/cb1d48da8da2061e72018761788a18b8fa8013bb.tar.gz" "av1.tar.gz" "av1"
-  # libaom v2.1.0-rc1
-  download "https://aomedia.googlesource.com/aom/+archive/ee207de03680642554960dc2aeb80224f24cdf59.tar.gz" "av1.tar.gz" "av1"
-  # libaom master
-  #git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
+  aomver=3.0.0
+  case $aomver in
+  
+    2.0.1) # libaom v2.0.1
+    download "https://aomedia.googlesource.com/aom/+archive/b52ee6d44adaef8a08f6984390de050d64df9faa.tar.gz" "av1.tar.gz" "av1"
+    ;;
+
+    2.0.2) # libaom v2.0.2
+    download "https://aomedia.googlesource.com/aom/+archive/cb1d48da8da2061e72018761788a18b8fa8013bb.tar.gz" "av1.tar.gz" "av1"
+    ;;
+
+    2.1.0-rc1) # libaom v2.1.0-rc1
+    download "https://aomedia.googlesource.com/aom/+archive/ee207de03680642554960dc2aeb80224f24cdf59.tar.gz" "av1.tar.gz" "av1"
+    ;;
+
+    3.0.0-rc1) # libaom v3.0.0-rc1
+    download "https://aomedia.googlesource.com/aom/+archive/f034976bbcc83c7ea033be34bae5bdd79a2539b6.tar.gz" "av1.tar.gz" "av1"
+    ;;
+
+    3.0.0) # libaom v3.0.0
+    download "https://aomedia.googlesource.com/aom/+archive/d853caa2ab62d161e5edf344ffee7b597449dc0d.tar.gz" "av1.tar.gz" "av1"
+    ;;
+
+    master) # libaom master
+    git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
+    ;;
+    
+    *)
+    echo 'INVALID AOM VERSION'
+    exit
+    ;;  
+  esac
 
   make_dir "$PACKAGES"/aom_build
   cd "$PACKAGES"/aom_build || exit
