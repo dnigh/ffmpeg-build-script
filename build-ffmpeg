@@ -515,8 +515,15 @@ CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
 if build "av1"; then
+  # libaom v2.0.1
   #download "https://aomedia.googlesource.com/aom/+archive/b52ee6d44adaef8a08f6984390de050d64df9faa.tar.gz" "av1.tar.gz" "av1"
-  git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
+  # libaom v2.0.2
+  #download "https://aomedia.googlesource.com/aom/+archive/cb1d48da8da2061e72018761788a18b8fa8013bb.tar.gz" "av1.tar.gz" "av1"
+  # libaom v2.1.0-rc1
+  download "https://aomedia.googlesource.com/aom/+archive/ee207de03680642554960dc2aeb80224f24cdf59.tar.gz" "av1.tar.gz" "av1"
+  # libaom master
+  #git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
+
   make_dir "$PACKAGES"/aom_build
   cd "$PACKAGES"/aom_build || exit
   if $MACOS_M1; then
