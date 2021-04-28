@@ -750,7 +750,7 @@ cd "$PACKAGES"/ffmpeg
 execute make -j $MJOBS
 execute make install
 
-INSTALL_FOLDER=$HOME"/bin"
+INSTALL_FOLDER="/usr/bin"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   INSTALL_FOLDER="/usr/local/bin"
 fi
