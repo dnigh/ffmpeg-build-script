@@ -537,6 +537,10 @@ if build "av1"; then
     3.0.0) # libaom v3.0.0
     download "https://aomedia.googlesource.com/aom/+archive/d853caa2ab62d161e5edf344ffee7b597449dc0d.tar.gz" "av1.tar.gz" "av1"
     ;;
+    
+    3.1.0) # libaom v3.1.0
+    download "https://aomedia.googlesource.com/aom/+archive/c0f14141bd71414b004dccd66d48b27570299fa3.tar.gz" "av1.tar.gz" "av1"
+    ;;
 
     master) # libaom master
     git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
