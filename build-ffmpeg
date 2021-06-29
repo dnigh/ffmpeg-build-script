@@ -515,7 +515,7 @@ CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
 if build "av1"; then
-  aomver=3.0.0
+  aomver=3.1.1
   case $aomver in
   
     2.0.1) # libaom v2.0.1
@@ -541,6 +541,9 @@ if build "av1"; then
     3.1.0) # libaom v3.1.0
     download "https://aomedia.googlesource.com/aom/+archive/c0f14141bd71414b004dccd66d48b27570299fa3.tar.gz" "av1.tar.gz" "av1"
     ;;
+    
+    3.1.1) #libaom v3.1.1
+    download "https://aomedia.googlesource.com/aom/+archive/7fadc0e77130efb05f52979b0deaba9b6a1bba6d.tar.gz" "av1.tar.gz" "av1"
 
     master) # libaom master
     git clone --depth=1 https://aomedia.googlesource.com/aom "$PACKAGES"/av1
