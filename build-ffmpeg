@@ -417,7 +417,7 @@ if ! $MACOS_M1; then
     execute cp SvtAv1Dec.pc "${WORKSPACE}/lib/pkgconfig/"
     build_done "svtav1"
   fi
-  CONFIGURE_OPTIONS+=("--enable-libsvtav1")
+#  CONFIGURE_OPTIONS+=("--enable-libsvtav1")
 fi
 
 if $NONFREE_AND_GPL; then
@@ -518,7 +518,7 @@ if build "vmaf"; then
     git clone --depth=1 https://github.com/Netflix/vmaf "$PACKAGES"/vmaf
     execute make -j $MJOBS
     execute make install
-    CONFIGURE_OPTIONS+=("--enable-libvmaf")
+#    CONFIGURE_OPTIONS+=("--enable-libvmaf")
     build_done "vmaf"
   fi
 
