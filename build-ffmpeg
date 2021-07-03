@@ -514,6 +514,14 @@ fi
 CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
+if build "vmaf"; then
+    git clone --depth=1 https://github.com/Netflix/vmaf "$PACKAGES"/vmaf
+    execute make -j $MJOBS
+    execute make install
+    CONFIGURE_OPTIONS+=("--enable-libvmaf")
+    build_done "vmaf"
+  fi
+
 if build "av1"; then
   aomver=3.1.1
   case $aomver in
