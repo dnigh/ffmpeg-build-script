@@ -514,10 +514,20 @@ fi
 CONFIGURE_OPTIONS+=("--enable-libvidstab")
 fi
 
+if build "vvc"; then
+    git clone --depth=1 https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM.git "$PACKAGES"/VVCSoftware_VTM
+    make_dir "$PACKAGES"/vvc_build
+    cd "$PACKAGES"/vvc_build || exit
+    execute cmake -DENABLE_TESTS=0 -DCMAKE_INSTALL_PREFIX="${WORKSPACE}" -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=Release "$PACKAGES"/VVCSoftware_VTM
+    execute make -j $MJOBS
+#    execute make install
+    build_done "vvc"
+  fi
+
 if build "vmaf"; then
     git clone --depth=1 https://github.com/Netflix/vmaf "$PACKAGES"/vmaf
     execute make -j $MJOBS
-    execute make install
+#    execute make install
     CONFIGURE_OPTIONS+=("--enable-libvmaf")
     build_done "vmaf"
   fi
