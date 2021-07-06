@@ -518,7 +518,7 @@ if build "vmaf"; then
     git clone --depth=1 https://github.com/Netflix/vmaf "$PACKAGES"/vmaf
     execute make -j $MJOBS
     execute make install
-#    CONFIGURE_OPTIONS+=("--enable-libvmaf")
+    CONFIGURE_OPTIONS+=("--enable-libvmaf")
     build_done "vmaf"
   fi
 
@@ -755,6 +755,7 @@ cd "$PACKAGES"/ffmpeg
   --enable-static \
   --enable-small \
   --enable-version3 \
+  --ld=g++ \
   --extra-cflags="${CFLAGS}" \
   --extra-ldexeflags="${LDEXEFLAGS}" \
   --extra-ldflags="${LDFLAGS}" \
