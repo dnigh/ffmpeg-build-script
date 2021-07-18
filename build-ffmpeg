@@ -533,7 +533,7 @@ if build "vmaf"; then
   fi
 
 if build "av1"; then
-  aomver=3.1.1
+  aomver=3.0.0
   case $aomver in
   
     2.0.1) # libaom v2.0.1
@@ -579,7 +579,7 @@ if build "av1"; then
   if $MACOS_M1; then
     execute cmake -DENABLE_TESTS=0 -DCMAKE_INSTALL_PREFIX="${WORKSPACE}" -DCMAKE_INSTALL_LIBDIR=lib -DCONFIG_RUNTIME_CPU_DETECT=0 "$PACKAGES"/av1
   else
-    execute cmake -DENABLE_TESTS=0 -DCMAKE_INSTALL_PREFIX="${WORKSPACE}" -DCMAKE_INSTALL_LIBDIR=lib -DCONFIG_TUNE_VMAF=1 -DCONFIG_TUNE_BUTTERAUGLI=1 "$PACKAGES"/av1
+    execute cmake -DENABLE_TESTS=0 -DCMAKE_INSTALL_PREFIX="${WORKSPACE}" -DCMAKE_INSTALL_LIBDIR=lib -DCONFIG_TUNE_VMAF=1 "$PACKAGES"/av1
   fi
   execute make -j $MJOBS
   execute make install
