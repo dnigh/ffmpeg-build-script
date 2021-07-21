@@ -533,7 +533,7 @@ if build "vmaf"; then
   fi
 
 if build "av1"; then
-  aomver=3.0.0
+  aomver=3.1.1
   case $aomver in
   
     2.0.1) # libaom v2.0.1
